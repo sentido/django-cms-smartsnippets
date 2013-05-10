@@ -3,7 +3,7 @@
 
 {% block extrahead %}{{ block.super }}
 <script type="text/javascript" src="{% admin_media_prefix %}js/jquery.min.js"></script>
-<script type="text/javascript" src="{% url admin:jsi18n %}"></script>
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
 {{ media }}
 
 <script type="text/javascript">
