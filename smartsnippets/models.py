@@ -67,6 +67,10 @@ class SmartSnippetVariable(models.Model):
 class SmartSnippetPointer(CMSPlugin):
     snippet = models.ForeignKey(SmartSnippet)
 
+    def copy_relations(self, old_instance):
+        self.snippet = old_instance.snippet
+        self.save()
+
     def render(self, context):
         vars = dict((var.snippet_variable.name, var.formatted_value) for var in self.variables.all())
         context.update(vars)
